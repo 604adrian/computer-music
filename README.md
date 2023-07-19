@@ -1,16 +1,4 @@
-The [cow mooing sound](https://commons.wikimedia.org/wiki/File:Sound_Ideas,_COW_-_SINGLE_MOO,_ANIMAL_02.wavThe )
-The [cat meowing](https://commons.wikimedia.org/wiki/File:Meow_domestic_cat.ogg)
+# Computer Music
+Do you ever think to yourself: "man, if only I had access to a website with a bunch of buttons that each produce a random sound, then I could be a world-class musician?"
 
-The [bark](https://commons.wikimedia.org/wiki/File:En-us-bark.ogg)
-
-The [baby sneeze](https://commons.wikimedia.org/wiki/File:Baby_sneeze.ogg)
-
-The [rooster](https://commons.wikimedia.org/wiki/File:En-cock-a-doodle-doo.oga)
-
-The [bass](https://commons.wikimedia.org/wiki/File:Heavy_metal_gallop_on_bass_with_a_pick.ogg)
-
-The [goat](https://commons.wikimedia.org/wiki/File:Herd_of_goats_bleating.ogg)
-
-The [geese](https://commons.wikimedia.org/wiki/File:Geese_Honking_(loud).ogg)
-
-The [alien](https://commons.wikimedia.org/wiki/File:Comic_or_50ties_sci_fi_ufo.ogg)
+If you answered yes to this question, then this website is for you. Check out the GitHub pages page for this repo, where you transform your keyboard and/or keys into a musical instrument: https://604adrian.github.io/computer-music/

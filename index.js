@@ -7,6 +7,7 @@ theDiv.style["grid-template-rows"] = "100px 100px 100px";
 theDiv.style["grid-template-columns"] = "100px 100px";
 theDiv.style.justifyItems = "center";
 
+// styling above the buttons
 const cow = document.createElement("button");
 cow.classList.add('cow');
 cow.textContent = "A";
@@ -131,9 +132,37 @@ guitar.addEventListener("click", () => {
 });
 
 // styling below the buttons
-const hr = document.createElement("hr")
-hr.style.width = "578px";
-hr.style.marginLeft = "10px";
-hr.style.marginTop = "10px";
-theDiv.appendChild(hr);
+const hrOne = document.createElement("hr")
+hrOne.style.width = "578px";
+hrOne.style.marginLeft = "10px";
+hrOne.style.marginTop = "30px";
+hrOne.style.marginBottom = "0";
 
+const caption = document.createElement("caption");
+caption.textContent = "click here for attribution";
+caption.style.width = "578px";
+caption.style.marginLeft = "10px";
+caption.style.marginTop = "10px";
+caption.style.marginBottom = "0";
+caption.style.fontSize = "0.9em";
+
+const hrTwo = document.createElement("hr")
+hrTwo.style.width = "578px";
+hrTwo.style.marginLeft = "10px";
+hrTwo.style.marginTop = "10px";
+
+theDiv.appendChild(hrOne);
+theDiv.appendChild(caption);
+theDiv.appendChild(hrTwo);
+
+caption.addEventListener("mouseover", () => {
+  caption.style.color = "blue";
+});
+
+caption.addEventListener("mouseleave", () => {
+  caption.style.color = "black";
+});
+
+caption.addEventListener("click", () => {
+  location = "./attribution.html";
+});
