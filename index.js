@@ -10,42 +10,52 @@ theDiv.style.justifyItems = "center";
 // styling above the buttons
 const cow = document.createElement("button");
 cow.classList.add('cow');
+cow.style.backgroundImage = 'url("./images/cow.jpg")';
 cow.textContent = "A";
 
 const baby = document.createElement("button");
 baby.classList.add('baby');
+baby.style.backgroundImage = 'url("./images/baby.jpg")';
 baby.textContent = "S";
 
 const rooster = document.createElement("button");
 rooster.classList.add('rooster');
+rooster.style.backgroundImage = 'url("./images/rooster.jpg")';
 rooster.textContent = "D";
 
 const cat = document.createElement("button");
 cat.classList.add('cat');
+cat.style.backgroundImage = 'url("./images/cat.jpg")';
 cat.textContent = "F";
 
 const bass = document.createElement("button");
 bass.classList.add('bass');
+bass.style.backgroundImage = 'url("./images/bass.jpg")';
 bass.textContent = "G";
 
 const dog = document.createElement("button");
 dog.classList.add('dog');
+dog.style.backgroundImage = 'url("./images/dog.jpg")';
 dog.textContent = "H";
 
 const goat = document.createElement("button");
 goat.classList.add('goat');
+goat.style.backgroundImage = 'url("./images/goat.jpg")';
 goat.textContent = "J";
 
 const geese = document.createElement("button");
 geese.classList.add('geese');
+geese.style.backgroundImage = 'url("./images/geese.jpg")';
 geese.textContent = "K";
 
 const alien = document.createElement("button");
 alien.classList.add('alien');
+alien.style.backgroundImage = 'url("./images/alien.jpg")';
 alien.textContent = "L";
 
 const guitar = document.createElement("button");
 guitar.classList.add('guitar');
+guitar.style.backgroundImage = 'url("./images/guitar.jpg")';
 guitar.textContent = ";";
 
 theDiv.appendChild(cow);
@@ -78,6 +88,8 @@ buttons.forEach((button) => {
   button.style.width = "100px";
   button.style.padding = "10px";
   button.style.margin = "10px";
+  button.style.backgroundPosition = "center center";
+  backgroundSize = "100% 100%";
   button.style.boxShadow = "1px 2px 17px 11px rgba(224, 151, 141, 0.90)";
   button.addEventListener("mouseover", () => {
     removeShadow(button);  
