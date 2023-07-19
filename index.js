@@ -59,6 +59,17 @@ theDiv.appendChild(geese);
 theDiv.appendChild(alien);
 theDiv.appendChild(guitar);
 
+// to easily change the shadow effect of a button
+function addShadow(buttonClass) {
+  buttonClass.style.boxShadow = "1px 2px 17px 11px rgba(224, 151, 141, 0.90)";
+  return;
+}
+
+function removeShadow(buttonClass) {
+  buttonClass.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+  return;
+}
+
 // defining the size for each button at once
 const buttons = document.querySelectorAll("button")
 console.log(buttons);
@@ -67,68 +78,73 @@ buttons.forEach((button) => {
   button.style.width = "100px";
   button.style.padding = "10px";
   button.style.margin = "10px";
+  button.style.boxShadow = "1px 2px 17px 11px rgba(224, 151, 141, 0.90)";
   button.addEventListener("mouseover", () => {
-    button.style.boxShadow = "1px 2px 17px 11px rgba(224, 151, 141, 0.90)";
+    removeShadow(button);  
   });
-   button.addEventListener("mouseleave", () => {
-    button.style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+  button.addEventListener("mouseleave", () => {
+    addShadow(button);
    });
 });
 
+// variables for file location
+const cowSound = "./sounds/cow.ogg";
+const babySound = "./sounds/baby.ogg";
+const bassSound = "./sounds/bass.ogg";
+const dogSound = "./sounds/dog.ogg";
+const catSound = "./sounds/cat.ogg";
+const roosterSound = "./sounds/rooster.wav";
+const goatSound = "./sounds/goat.wav";
+const geeseSound = "./sounds/geese.mp3";
+const alienSound = "./sounds/alien.wav";
+const guitarSound = "./sounds/guitar.mp3";
+
+// function for playing sound
+function playSound(fileName) {
+  let sound = new Audio(fileName);
+  sound.play();
+}
+
+
 // event listeners for particular buttons
 cow.addEventListener("click", () => {
-  let sound = new Audio("./sounds/cow.ogg");
-  sound.play();
+  playSound(cowSound); 
 });
 
 baby.addEventListener("click", () => {
-  let sound = new Audio("./sounds/baby.ogg");
-  sound.play();
+  playSound(babySound); 
 });
 
 dog.addEventListener("click", () => {
-  let sound = new Audio("./sounds/dog.ogg");
-  sound.play();
+  playSound(dogSound);  
 });
 
 bass.addEventListener("click", () => {
-  let sound = new Audio("./sounds/bass.ogg");
-  sound.play();
+  playSound(bassSound);
 });
 
 cat.addEventListener("click", () => {
-  let sound = new Audio("./sounds/cat.ogg");
-  sound.play();
-});
-
-bass.addEventListener("click", () => {
-  let sound = new Audio("./sounds/bass.ogg");
-  sound.play();
+  playSound(catSound);
 });
 
 rooster.addEventListener("click", () => {
-  let sound = new Audio("./sounds/rooster.wav");
-  sound.play();
+  playSound(roosterSound); 
 });
 
 goat.addEventListener("click", () => {
-  let sound = new Audio("./sounds/goat.wav");
-  sound.play();
+  playSound(goatSound);
 });
 
 geese.addEventListener("click", () => {
-  let sound = new Audio("./sounds/geese.mp3");
-  sound.play();
+  playSound(geeseSound);
 });
 
 alien.addEventListener("click", () => {
-  let sound = new Audio("./sounds/alien.wav");
-  sound.play();
+  playSound(alienSound);
 });
 
 guitar.addEventListener("click", () => {
-  let sound = new Audio("./sounds/guitar.mp3");
-  sound.play();
+  playSound(guitarSound);
 });
 
 // styling below the buttons
@@ -166,3 +182,51 @@ caption.addEventListener("mouseleave", () => {
 caption.addEventListener("click", () => {
   location = "./attribution.html";
 });
+
+// sound effects and animation when press down on specified keys
+window.addEventListener(
+  "keydown",
+  (event) => {
+    if (event.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+
+    switch (event.code) {
+      case "KeyA":
+        playSound(cowSound);
+        break;
+      case "KeyS":
+        playSound(babySound);
+        break;
+      case "KeyD":
+        playSound(roosterSound);
+        break;
+      case "KeyF":
+        playSound(catSound);
+        break;
+      case "KeyG":
+        playSound(bassSound);
+        break;
+      case "KeyH":
+        playSound(dogSound);
+        break;
+      case "KeyJ":
+        playSound(goatSound);
+        break;
+      case "KeyK":
+        playSound(geeseSound);
+        break;
+      case "KeyL":
+        playSound(alienSound);
+        break;
+      case "Semicolon":
+        playSound(guitarSound);
+        break;
+     
+    }
+
+  },
+  true,
+);
+
+
