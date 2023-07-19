@@ -137,4 +137,3 @@ hr.style.marginLeft = "10px";
 hr.style.marginTop = "10px";
 theDiv.appendChild(hr);
 
-const 
