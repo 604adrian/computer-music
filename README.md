@@ -6,5 +6,3 @@ If you answered yes to this question, then this website is for you. Check out th
 ## How do I use this website?
 Good question. To use this website, simply click on the buttons displayed on the screen, or press the key on your keyboard that is associated with that button. This should play a sound that matches the image on the button (e.g. if you click the rooster button it will play the sound of a rooster).
 
-## Disclaimer
-This website is still undergoing construction. So you will notice, when visiting it, that the styling needs some TLC. I unforunately do not have the time to fix these styling errors right now, but st assured that these sins of styling will be fixed in the near future. In the time being, the best I can do is write this disclaimer to warn users what they're getting into.
