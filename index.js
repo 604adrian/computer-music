@@ -4,13 +4,60 @@ body.style.backgroundColor = "rgba(20, 30, 40)"
 // defining the DOM node
 const theDiv = document.querySelector("#theDiv");
 theDiv.style.margin = "auto";
-theDiv.style.marginTop = "80px";
+theDiv.style.marginTop = "10px";
 theDiv.style.width = "660px";
-theDiv.style["grid-template-rows"] = "100px 100px 100px";
-theDiv.style["grid-template-columns"] = "100px 100px";
+theDiv.style.display = "grid";
+theDiv.style["grid-template-columns"] = "minmax(3rem, 1fr) minmax(min-content, 94rem) minmax(rem, 11fr)";
 theDiv.style.justifyItems = "center";
 
-// styling above the buttons
+const hero = document.createElement('hero');
+hero.style.gridColumn = "1/-1";
+hero.style.display = "grid";
+hero.style.marginBottom = "20px";
+hero.style.marginBottom = "50px";
+hero.style.rowGap = "25px";
+
+const heroImg = document.createElement('img');
+heroImg.src = "./images/hero.jpg";
+heroImg.style.width = "100%";
+heroImg.style.height = "auto";
+heroImg.style.margin = "auto";
+heroImg.style.marginTop = "-20px";
+
+const title = document.createElement("h1");
+title.textContent = "10 WAYS TO MAKE BEAUTIFUL COMPUTER MUSIC FOR THE WHOLE FAMILY TO ENJOY";
+title.style.color = "orangered";
+title.style.textAlign = "center";
+title.style.fontSize = "2.6rem";
+title.style.margin = "auto";
+
+const subtitle = document.createElement('p');
+subtitle.textContent = "Each one of the 10 buttons below unlocks a whole new world of musical potential";
+subtitle.style.color = "orangered";
+subtitle.style.fontFamily = "'Raleway', sans-seif";
+subtitle.style.textAlign = "center";
+subtitle.style.fontSize = "1.3rem";
+subtitle.style.marginLeft = "auto";
+subtitle.style.marginRight = "auto";
+subtitle.style.marginTop = "0";
+subtitle.style.marginBottom = "0";
+
+hero.appendChild(heroImg)
+hero.appendChild(title);
+hero.appendChild(subtitle);
+theDiv.appendChild(hero);
+
+// container for all the buttons + the attribution
+const platter = document.createElement('div');
+platter.style.display = "grid";
+platter.style.gridTemplateRows = "3fr 1fr"
+
+// container for all the buttons 
+const plate = document.createElement("div");
+plate.style.display = "grid";
+plate.style["grid-template-columns"] = "1fr 1fr 1fr 1fr 1fr";
+
+//the buttons
 const cow = document.createElement("button");
 cow.classList.add('cow');
 cow.style.backgroundImage = '\
@@ -58,7 +105,7 @@ cat.style.color = "white";
 const bass = document.createElement("button");
 bass.classList.add('bass');
 bass.style.backgroundImage = '\
-  linear-gradient(rgba(0, 0, 255, 0.5),\
+  linear-gradient(rgba(0, 0, 255, 0.6),\
   rgba(255, 255, 255, 0.5)),\
   url("./images/bass.jpg")';
 bass.style.backgroundSize = "contain";
@@ -121,16 +168,18 @@ guitar.style.backgroundPosition = "center";
 guitar.textContent = ";";
 guitar.style.color = "white";
 
-theDiv.appendChild(cow);
-theDiv.appendChild(baby);
-theDiv.appendChild(rooster);
-theDiv.appendChild(cat);
-theDiv.appendChild(bass);
-theDiv.appendChild(dog);
-theDiv.appendChild(goat);
-theDiv.appendChild(geese);
-theDiv.appendChild(alien);
-theDiv.appendChild(guitar);
+plate.appendChild(cow);
+plate.appendChild(baby);
+plate.appendChild(rooster);
+plate.appendChild(cat);
+plate.appendChild(bass);
+plate.appendChild(dog);
+plate.appendChild(goat);
+plate.appendChild(geese);
+plate.appendChild(alien);
+plate.appendChild(guitar);
+platter.appendChild(plate);
+theDiv.appendChild(platter);
 
 // to easily change the shadow effect of a button
 function addShadow(buttonClass) {
@@ -147,10 +196,9 @@ function removeShadow(buttonClass) {
 const buttons = document.querySelectorAll("button")
 console.log(buttons);
 buttons.forEach((button) => {
-  button.style.height = "100px";
-  button.style.width = "100px";
-  button.style.padding = "10px";
-  button.style.margin = "10px";
+  button.style.height = "90%";
+  button.style.width = "90%";
+  button.style.margin = "auto";
   button.style.backgroundiSize = "20px";
   button.addEventListener("mouseover", () => {
     addShadow(button);  
@@ -177,7 +225,6 @@ function playSound(fileName) {
   let sound = new Audio(fileName);
   sound.play();
 }
-
 
 // event listeners for particular buttons
 cow.addEventListener("click", () => {
@@ -221,6 +268,13 @@ guitar.addEventListener("click", () => {
 });
 
 // styling below the buttons
+const fancyAttro = document.createElement('div');
+
+//fancyAttro.style.gridColumn = "2 / 2";
+fancyAttro.style.display = "grid";
+fancyAttro.gridTemplateColumns = "1fr auto";
+fancyAttro.gridTemplateRows = "1fr 1fr 1fr";
+
 const hrOne = document.createElement("hr")
 hrOne.style.width = "578px";
 hrOne.style.marginLeft = "10px";
@@ -229,8 +283,10 @@ hrOne.style.marginBottom = "0";
 
 const caption = document.createElement("caption");
 caption.textContent = "click here for attribution";
-caption.style.width = "578px";
-caption.style.marginLeft = "10px";
+caption.style.fontFamily = "'Raleway', sans-seif";
+caption.style.color = "white";
+caption.textAlign = "center";
+caption.style.width = "100%"
 caption.style.marginTop = "10px";
 caption.style.marginBottom = "0";
 caption.style.fontSize = "0.9em";
@@ -240,20 +296,103 @@ hrTwo.style.width = "578px";
 hrTwo.style.marginLeft = "10px";
 hrTwo.style.marginTop = "10px";
 
-theDiv.appendChild(hrOne);
-theDiv.appendChild(caption);
-theDiv.appendChild(hrTwo);
+fancyAttro.appendChild(hrOne);
+fancyAttro.appendChild(caption);
+fancyAttro.appendChild(hrTwo);
+
 
 caption.addEventListener("mouseover", () => {
-  caption.style.color = "blue";
-});
+  caption.style.color = "grey";
+  caption.textContent = "click me";
+  });
 
 caption.addEventListener("mouseleave", () => {
-  caption.style.color = "black";
+  caption.style.color = "white";
+  caption.textContent = "click here for attribution";
 });
 
 caption.addEventListener("click", () => {
   location = "./attribution.html";
+});
+
+// putting the attribution and the buttons in the same grid
+platter.appendChild(fancyAttro);
+theDiv.appendChild(platter);
+
+// the heading
+const textGrid = document.createElement("div");
+textGrid.display = "grid";
+textGrid.display["grid-template-rows"] = "1fr 1fr";
+
+const heading = document.createElement("h2");
+heading.textContent = "WHAT IS THIS WEBSITE?";
+heading.style.color = "#00beef";
+heading.classList.add("subheading");
+heading.style.fontFamily = "'Raleway', sans-seif";
+heading.style.textAlign = "center";
+heading.style.marginTop = "50px";
+heading.style.marginBottom = "0px";
+heading.gridRow = "1/2";
+
+const readMe = document.createElement("div");
+readMe.gridRow = "2/2";
+readMe.style.display = "grid";
+readMe.style.gridTemplateRows = "1fr 1fr"
+readMe.style.margin = "auto";
+readMe.style.marginTop = "0";
+readMe.style.padding = "45px";
+readMe.style.rowGap = "10px";
+readMe.style.paddingTop = "30px";
+readMe.style.paddingBottom = "12px";
+
+const readMeOne = document.createElement("p");
+readMeOne.textContent =
+`Do you ever think to yourself: "man, if only I had access to a website with a bunch of buttons that each produce a sound that shares seemingly no relation to the sounds produced by other buttons on the website, then I could be a world-class musician"?`
+readMeOne.gridRow = "1/3";
+readMeOne.style.marginTop = "0";
+readMeOne.style.marginBottom = "0";
+readMeOne.classList.add('expo');
+readMeOne.style.color = "white";
+readMeOne.style.fontFamily = "'Raleway', sans-serif";
+
+const readMeTwo = document.createElement("p");
+readMeTwo.textContent =
+"If you answered yes to that question, then this website is for you. So what are you waiting for? Get started. Click away at the above buttons, or press their corresponding keys on your keyboard, and your ears will thank you for it! Good luck and stay safe!"
+readMeTwo.style.gridRow = "2/3";
+readMeTwo.style.marginTop = "0";
+readMeTwo.classList.add('expo');
+readMeTwo.style.color = "white";
+readMeTwo.style.fontFamily = "'Raleway', sans-serif";
+
+readMe.appendChild(readMeOne); 
+readMe.appendChild(readMeTwo);
+textGrid.appendChild(readMe);
+textGrid.appendChild(heading);
+textGrid.appendChild(readMe);
+theDiv.appendChild(textGrid);
+
+const footer = document.createElement("footer");
+footer.style.textAlign = "center";
+
+const link = document.createElement("a");
+link.href = "https://github.com/604adrian";
+link.textContent = "Check out my GitHub";
+link.textAlign = "center";
+link.style.fontSize = "0.7em"
+link.style.margin = "0";
+link.style.color = "grey";
+link.style.fontFamily = "'Raleway', sans-serif";
+link.style.textDecoration = "none";
+
+footer.appendChild(link);
+body.appendChild(footer);
+
+link.addEventListener("mouseover", () => {
+  link.style.color = "white";
+  });
+
+link.addEventListener("mouseleave", () => {
+  link.style.color = "grey";
 });
 
 // sound effects and animation when press down on specified keys
