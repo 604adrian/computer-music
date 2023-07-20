@@ -1,3 +1,6 @@
+const body = document.querySelector("body")
+body.style.backgroundColor = "rgba(20, 30, 40)"
+
 // defining the DOM node
 const theDiv = document.querySelector("#theDiv");
 theDiv.style.margin = "auto";
@@ -10,53 +13,113 @@ theDiv.style.justifyItems = "center";
 // styling above the buttons
 const cow = document.createElement("button");
 cow.classList.add('cow');
-cow.style.backgroundImage = 'url("./images/cow.jpg")';
+cow.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/cow.jpg")';
+cow.style.backgroundSize = "contain";
+cow.style.backgroundPosition = "center";
 cow.textContent = "A";
+cow.style.color = "white";
 
 const baby = document.createElement("button");
 baby.classList.add('baby');
-baby.style.backgroundImage = 'url("./images/baby.jpg")';
+baby.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/baby.jpg")';
+baby.style.backgroundSize = "contain";
+baby.style.backgroundPosition = "center";
 baby.textContent = "S";
+baby.style.color = "white"
 
 const rooster = document.createElement("button");
 rooster.classList.add('rooster');
-rooster.style.backgroundImage = 'url("./images/rooster.jpg")';
+rooster.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/rooster.jpg")';
+rooster.style.backgroundSize = "contain";
+rooster.style.backgroundPosition = "center";
 rooster.textContent = "D";
+rooster.style.color = "white"
 
 const cat = document.createElement("button");
 cat.classList.add('cat');
-cat.style.backgroundImage = 'url("./images/cat.jpg")';
+cat.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/cat.jpg")';
 cat.textContent = "F";
+cat.style.backgroundSize = "contain";
+cat.style.backgroundPosition = "center";
+cat.style.color = "white";
 
 const bass = document.createElement("button");
 bass.classList.add('bass');
-bass.style.backgroundImage = 'url("./images/bass.jpg")';
+bass.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/bass.jpg")';
+bass.style.backgroundSize = "contain";
+bass.style.backgroundPosition = "center";
 bass.textContent = "G";
+bass.style.color = "white";
 
 const dog = document.createElement("button");
 dog.classList.add('dog');
-dog.style.backgroundImage = 'url("./images/dog.jpg")';
+dog.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/dog.jpg")';
+dog.style.backgroundSize = "contain";
+dog.style.backgroundPosition = "center";
 dog.textContent = "H";
+dog.style.color = "white";
 
 const goat = document.createElement("button");
 goat.classList.add('goat');
-goat.style.backgroundImage = 'url("./images/goat.jpg")';
+goat.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/goat.jpg")';
+goat.style.backgroundSize = "contain";
+goat.style.backgroundPosition = "center";
 goat.textContent = "J";
+goat.style.color = "white";
 
 const geese = document.createElement("button");
 geese.classList.add('geese');
-geese.style.backgroundImage = 'url("./images/geese.jpg")';
+geese.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/geese.jpg")';
+geese.style.backgroundSize = "contain";
+geese.style.backgroundPosition = "center";
 geese.textContent = "K";
+geese.style.color = "white";
 
 const alien = document.createElement("button");
 alien.classList.add('alien');
-alien.style.backgroundImage = 'url("./images/alien.jpg")';
+alien.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/alien.jpg")';
+alien.style.backgroundSize = "contain";
+alien.style.backgroundPosition = "center";
 alien.textContent = "L";
+alien.style.color = "white";
 
 const guitar = document.createElement("button");
 guitar.classList.add('guitar');
-guitar.style.backgroundImage = 'url("./images/guitar.jpg")';
+guitar.style.backgroundImage = '\
+  linear-gradient(rgba(0, 0, 255, 0.5),\
+  rgba(255, 255, 255, 0.5)),\
+  url("./images/guitar.jpg")';
+guitar.style.backgroundSize = "contain";
+guitar.style.backgroundPosition = "center";
 guitar.textContent = ";";
+guitar.style.color = "white";
 
 theDiv.appendChild(cow);
 theDiv.appendChild(baby);
@@ -88,14 +151,12 @@ buttons.forEach((button) => {
   button.style.width = "100px";
   button.style.padding = "10px";
   button.style.margin = "10px";
-  button.style.backgroundPosition = "center center";
-  backgroundSize = "100% 100%";
-  button.style.boxShadow = "1px 2px 17px 11px rgba(224, 151, 141, 0.90)";
+  button.style.backgroundiSize = "20px";
   button.addEventListener("mouseover", () => {
-    removeShadow(button);  
+    addShadow(button);  
   });
   button.addEventListener("mouseleave", () => {
-    addShadow(button);
+    removeShadow(button);
    });
 });
 
@@ -240,5 +301,4 @@ window.addEventListener(
   },
   true,
 );
-
 
