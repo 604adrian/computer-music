@@ -194,7 +194,7 @@ function removeShadow(buttonClass) {
 
 // defining the size for each button at once
 const buttons = document.querySelectorAll("button")
-console.log(buttons);
+
 buttons.forEach((button) => {
   button.style.height = "90%";
   button.style.width = "90%";
@@ -202,41 +202,46 @@ buttons.forEach((button) => {
   button.style.backgroundiSize = "20px";
   button.addEventListener("mouseover", () => {
     addShadow(button);  
+    button.style.cursor = "pointer";
   });
   button.addEventListener("mouseleave", () => {
     removeShadow(button);
-   });
+  });
+  button.style.fontFamily = "monospace";
+  button.style.fontWeight = "bold";
+  button.style.fontSize = "3em";
+  button.style.textShadow = "0px 3px 10px rgba(0,0,0,1)"
 });
 
 // variables for file location
-const cowSound = "./sounds/cow.ogg";
-const babySound = "./sounds/baby.ogg";
-const bassSound = "./sounds/bass.ogg";
-const dogSound = "./sounds/dog.ogg";
-const catSound = "./sounds/cat.ogg";
-const roosterSound = "./sounds/rooster.wav";
-const goatSound = "./sounds/goat.wav";
-const geeseSound = "./sounds/geese.mp3";
-const alienSound = "./sounds/alien.wav";
-const guitarSound = "./sounds/guitar.mp3";
+const cowSound = new Audio("./sounds/cow.mp3");
+const babySound = new Audio("./sounds/baby.mp3");
+const bassSound = new Audio("./sounds/bass.wav");
+const dogSound = new Audio("./sounds/dog.mp3");
+const catSound = new Audio("./sounds/cat.mp3");
+const roosterSound = new Audio("./sounds/rooster.mp3");
+const goatSound = new Audio("./sounds/goat.mp3");
+const geeseSound = new Audio("./sounds/geese.mp3");
+const alienSound = new Audio("./sounds/alien.mp3");
+const guitarSound = new Audio("./sounds/guitar.mp3");
 
-// function for playing sound
-function playSound(fileName) {
-  let sound = new Audio(fileName);
-  sound.play();
+const playSound = (sound, elem) => {
+  return (!sound.paused) 
+    ? sound.pause()
+    : sound.play()
 }
 
 // event listeners for particular buttons
 cow.addEventListener("click", () => {
-  playSound(cowSound); 
+  playSound(cowSound, cow);
 });
 
 baby.addEventListener("click", () => {
-  playSound(babySound); 
+  playSound(babySound);
 });
 
 dog.addEventListener("click", () => {
-  playSound(dogSound);  
+  playSound(dogSound);
 });
 
 bass.addEventListener("click", () => {
@@ -300,11 +305,11 @@ fancyAttro.appendChild(hrOne);
 fancyAttro.appendChild(caption);
 fancyAttro.appendChild(hrTwo);
 
-
 caption.addEventListener("mouseover", () => {
   caption.style.color = "grey";
   caption.textContent = "click me";
-  });
+  caption.style.cursor = 'pointer';
+});
 
 caption.addEventListener("mouseleave", () => {
   caption.style.color = "white";
@@ -389,7 +394,7 @@ body.appendChild(footer);
 
 link.addEventListener("mouseover", () => {
   link.style.color = "white";
-  });
+});
 
 link.addEventListener("mouseleave", () => {
   link.style.color = "grey";
@@ -406,38 +411,94 @@ window.addEventListener(
     switch (event.code) {
       case "KeyA":
         playSound(cowSound);
+        addShadow(cow);
         break;
       case "KeyS":
         playSound(babySound);
+        addShadow(baby);
         break;
       case "KeyD":
         playSound(roosterSound);
+        addShadow(rooster);
         break;
       case "KeyF":
         playSound(catSound);
+        addShadow(cat);
         break;
       case "KeyG":
         playSound(bassSound);
+        addShadow(bass);
         break;
       case "KeyH":
         playSound(dogSound);
+        addShadow(dog);
         break;
       case "KeyJ":
         playSound(goatSound);
+        addShadow(goat);
         break;
       case "KeyK":
         playSound(geeseSound);
+        addShadow(geese);
         break;
       case "KeyL":
         playSound(alienSound);
+        addShadow(alien);
         break;
       case "Semicolon":
         playSound(guitarSound);
+        addShadow(guitar);
         break;
-     
     }
 
   },
   true,
 );
+
+// sound effects and animation when press down on specified keys
+window.addEventListener(
+  "keyup",
+  (event) => {
+    if (event.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+
+    switch (event.code) {
+      case "KeyA":
+        removeShadow(cow);
+        break;
+      case "KeyS":
+        removeShadow(baby);
+        break;
+      case "KeyD":
+        removeShadow(rooster);
+        break;
+      case "KeyF":
+        removeShadow(cat);
+        break;
+      case "KeyG":
+        removeShadow(bass);
+        break;
+      case "KeyH":
+        removeShadow(dog);
+        break;
+      case "KeyJ":
+        removeShadow(goat);
+        break;
+      case "KeyK":
+        removeShadow(geese);
+        break;
+      case "KeyL":
+        removeShadow(alien);
+        break;
+      case "Semicolon":
+        removeShadow(guitar);
+        break;
+    }
+
+  },
+  true,
+);
+
+
 
